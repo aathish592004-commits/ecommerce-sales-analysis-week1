@@ -1,80 +1,128 @@
 # E-Commerce Sales Analysis – Data Science Internship, Week 1
 
-**Organization:** WeIntern Pvt Ltd
-**Week 1 objective:** Build data cleaning and analytical thinking skills through data cleaning, KPI analysis, visualization and reporting.
+**Organization:** WeIntern Pvt Ltd  
+**Author:** Athish M  
+**Program:** MCA – Data Science  
+**Tools:** Python, Pandas, Jupyter Notebook, Power BI
+
+## Project Objective
+
+The objective of this project is to develop data cleaning and analytical skills by examining an e-commerce transaction dataset, calculating key performance indicators (KPIs), identifying sales trends and presenting insights through visualizations and a Power BI dashboard.
 
 ## Project Summary
 
-This project cleans the Online Retail transaction dataset, calculates core sales KPIs, analyses sales trends and customer behaviour, and presents the results in charts, a Power BI dashboard and a written report.
+This project analyses the Online Retail transaction dataset of a UK-based online gift retailer. It includes data preprocessing, sales KPI calculations, monthly revenue analysis, product performance analysis, country-wise revenue analysis and dashboard development.
 
 ## Dataset Description
 
-- **Source:** Online Retail.xlsx (transactions of a UK-based online gift retailer)
-- **Period:** 1 Dec 2010 to 9 Dec 2011
-- **Raw size:** 541,909 rows × 8 columns
-- **Columns:** InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country
-- **Derived column:** Revenue = Quantity × UnitPrice
-- **Cleaned size:** 524,878 rows, 19,960 orders, 4,338 identified customers, 38 countries
+- **Dataset:** Online Retail.xlsx
+- **Source:** UCI Machine Learning Repository
+- **Period:** 1 December 2010 – 9 December 2011
+- **Original size:** 541,909 rows × 8 columns
+- **Cleaned size:** 524,878 rows
+- **Orders:** 19,960
+- **Identified customers:** 4,338
+- **Countries:** 38
 
-Note: the dataset has no Category, payment mode or delivery status columns, so the Top-Selling Category KPI could not be calculated.
+**Derived column:** Revenue = Quantity × UnitPrice.
 
-## Tools and Libraries
+**Dataset limitation:** The dataset does not contain a Category column. Therefore, the Top-Selling Category KPI could not be calculated.
 
-- Python 3 (pandas, NumPy, Matplotlib, Seaborn, openpyxl)
+## Tools and Technologies
+
+- Python
+- Pandas and NumPy
+- Matplotlib and Seaborn
 - Jupyter Notebook
 - Power BI Desktop
+- Excel
 
-## Key Steps Performed
+## Data Cleaning and Preparation
 
-1. **Inspection:** reviewed shape, data types, summary statistics and missing values.
-2. **Duplicates:** found and removed 5,268 fully duplicated rows. Repeated invoice numbers were kept, since one invoice holds many product lines.
-3. **Missing values:** removed 1,454 rows with no Description (0.27%). Rows with no CustomerID (24.9%) were kept for sales analysis and excluded only from customer-level analysis.
-4. **Validation:** converted InvoiceDate to datetime, then kept only rows with Quantity > 0, UnitPrice > 0 and invoice numbers not starting with "C" (cancellations).
-5. **Feature creation:** added the Revenue column.
-6. **Analysis:** calculated KPIs, monthly trends, country, product and customer breakdowns, and outlier checks.
-7. **Visualization:** built Matplotlib/Seaborn charts and a Power BI dashboard.
-8. **Reporting:** wrote the final report with findings and recommendations.
+1. Inspected the dataset structure, data types and missing values.
+2. Identified and removed 5,268 duplicate rows.
+3. Removed rows with missing product descriptions.
+4. Retained records with missing CustomerID for overall sales analysis.
+5. Converted InvoiceDate into datetime format.
+6. Removed cancelled transactions and invalid quantity or price records.
+7. Created a Revenue column using Quantity × UnitPrice.
+
+## Key Performance Indicators
+
+| KPI | Result |
+|---|---:|
+| Total Revenue | £10,642,110.80 |
+| Total Orders | 19,960 |
+| Average Order Value | £533.17 |
+| Total Units Sold | 5,572,420 |
 
 ## Major Findings
 
-- Total revenue is **£10.64M** from **19,960 orders**, with an average order value of **£533.17** and **5.57M units** sold (currency assumed GBP).
-- **September to November 2011** earned about 35% of revenue; November was the peak at £1.50M.
-- The **United Kingdom** provides 84.6% of revenue.
-- **Repeat customers** make up 65.6% of identified customers and generate 93.1% of identified-customer revenue.
-- The top 20% of customers drive about 75% of revenue.
-- Shipping and adjustment lines (DOTCOM POSTAGE, POSTAGE, Manual) and two bulk orders (invoices 581483 and 541431) distort product and trend charts and should be treated with care.
+- Total revenue reached approximately £10.64 million.
+- November 2011 recorded the highest monthly revenue, approximately £1.50 million.
+- The United Kingdom contributed approximately 84.6% of total revenue.
+- September to November 2011 represented a strong revenue period.
+- Product performance varied significantly across the top-selling products.
+- Postage and manual adjustment entries should be considered when interpreting product revenue rankings.
 
-## Folder Structure
+## Visualizations
 
+The project includes:
+
+- Monthly Revenue Trend – Line Chart
+- Top 10 Products by Revenue – Bar Chart
+- Revenue Share by Country – Pie Chart
+- Revenue Distribution – Chart
+- Correlation Heatmap
+- Power BI Sales Dashboard
+
+## Power BI Dashboard
+
+The interactive dashboard presents:
+
+- Total Revenue
+- Total Orders
+- Average Order Value
+- Total Units Sold
+- Monthly Revenue Trend
+- Top 10 Products by Revenue
+- Revenue Share by Country
+
+## Repository Contents
+
+| File | Description |
+|---|---|
+| `week1_analysis.ipynb` | Python analysis and data cleaning |
+| `Online Retail.xlsx` | Original dataset |
+| `online_retail_cleaned.zip` | Compressed cleaned dataset |
+| `Ecommerce_Sales_Analysis.pbix` | Power BI dashboard |
+| `E-Commerce Sales Analysis – Final Report.pdf` | Final project report |
+| `kpi_summary.csv` | KPI summary |
+| `monthly_revenue.png` | Monthly revenue visualization |
+| `revenue-share-by-country-pie.png` | Country-wise revenue visualization |
+| `revenue_distribution.png` | Revenue distribution visualization |
+| `correlation_heatmap.png` | Correlation heatmap |
+| `dashboard-mockup.png` | Dashboard mockup |
+| `requirements.txt` | Python dependencies |
+
+## How to Run
+
+1. Clone or download this repository.
+2. Install the required Python libraries:
+
+```bash
+pip install -r requirements.txt
 ```
-data-science-week1-assignment/
-├── data/
-│   ├── raw/                  # Online Retail.xlsx (unchanged)
-│   └── cleaned/              # online_retail_cleaned.csv
-├── notebooks/
-│   └── week1_analysis.ipynb
-├── outputs/
-│   ├── charts/
-│   └── dashboard/
-├── reports/
-│   └── final_report.pdf
-├── screenshots/
-├── README.md
-└── requirements.txt
-```
 
-## Execution Instructions
+3. Open `week1_analysis.ipynb` using Jupyter Notebook.
+4. Run the notebook cells in sequence.
+5. Open `Ecommerce_Sales_Analysis.pbix` using Power BI Desktop to explore the dashboard.
 
-1. Clone the repository and open a terminal in its root folder.
-2. Install the requirements:
-   ```
-   pip install -r requirements.txt
-   ```
-3. Place `Online Retail.xlsx` in `data/raw/`.
-4. Open `notebooks/week1_analysis.ipynb` in Jupyter and run all cells from top to bottom. The cleaned dataset is saved to `data/cleaned/` and charts to `outputs/charts/`.
-5. Open the Power BI dashboard from `outputs/dashboard/`, or view the screenshot in `screenshots/`.
+## Conclusion
 
-## Author
+This project demonstrates practical skills in data cleaning, exploratory data analysis, KPI calculation, data visualization and business reporting using Python and Power BI.
 
-**Athish M**
-MCA Student, Alliance University, Bangalore
+---
+
+**Author:** Athish M  
+**Project:** WeIntern Data Science Internship – Week 1
