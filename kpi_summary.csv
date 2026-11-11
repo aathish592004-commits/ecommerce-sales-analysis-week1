@@ -1,0 +1,8 @@
+KPI,Value,Meaning
+Total Revenue,"£10,642,110.80",Sum of Quantity x UnitPrice for valid sales
+Total Orders,"19,960",Unique invoices after removing cancellations
+Average Order Value,£533.17,Total revenue divided by total orders
+Total Units Sold,"5,572,420",Sum of quantities sold
+Top Revenue-Generating Product,DOTCOM POSTAGE,Product with the highest revenue
+Top-Selling Product (by units),"PAPER CRAFT , LITTLE BIRDIE",Product with the most units sold
+Top Country by Revenue,United Kingdom,Country contributing the most revenue
